@@ -1,0 +1,511 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenClaw 项目学习看板</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0;
+    color: #eaf1ff;
+    font: 14px/1.5 "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(79, 157, 255, 0.28), transparent 38%),
+      radial-gradient(circle at 92% 16%, rgba(132, 98, 255, 0.26), transparent 40%),
+      radial-gradient(circle at 50% 120%, rgba(37, 215, 177, 0.2), transparent 42%),
+      #060b16;
+    min-height: 100%;
+  }
+  .wrap { max-width: 1260px; margin: 0 auto; padding: 24px 18px 28px; }
+  .hero {
+    border: 1px solid rgba(145, 167, 216, 0.24);
+    background: linear-gradient(140deg, rgba(15,25,45,0.9), rgba(9,16,31,0.88));
+    border-radius: 18px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 18px 48px rgba(3,8,17,0.45);
+    backdrop-filter: blur(6px);
+  }
+  h1 { margin: 0; font-size: 24px; letter-spacing: 0.2px; }
+  .sub { color: #a5b6de; margin-top: 6px; }
+  .toolbar { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .tabs { margin-top: 14px; display: inline-flex; padding: 4px; border-radius: 12px; border: 1px solid rgba(120, 146, 198, 0.22); background: rgba(15, 24, 41, 0.82); }
+  .tab {
+    border: 0;
+    background: transparent;
+    color: #b9c9eb;
+    padding: 8px 12px;
+    border-radius: 9px;
+    font-weight: 700;
+    box-shadow: none;
+  }
+  .tab.active {
+    background: linear-gradient(135deg, #2457d4, #2d76ff);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(40, 103, 255, 0.22);
+  }
+  button {
+    border: 1px solid rgba(123, 162, 255, 0.5);
+    background: linear-gradient(135deg, #2457d4, #2d76ff);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    box-shadow: 0 8px 18px rgba(40, 103, 255, 0.28);
+  }
+  button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  button:active { transform: translateY(0); }
+  .ok { color: #6ff0b2; }
+  .bad { color: #ff8f9d; }
+  .grid { margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(170px, 1fr)); gap: 12px; }
+  .card {
+    background: linear-gradient(160deg, rgba(16,27,49,0.9), rgba(11,19,35,0.86));
+    border: 1px solid rgba(120, 146, 198, 0.22);
+    border-radius: 14px;
+    padding: 12px 12px 11px;
+    box-shadow: 0 10px 24px rgba(2,7,15,0.3);
+  }
+  .metric { position: relative; overflow: hidden; }
+  .metric::after {
+    content: "";
+    position: absolute;
+    right: -26px;
+    top: -30px;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(117, 173, 255, 0.35), rgba(117, 173, 255, 0));
+    pointer-events: none;
+  }
+  .k { color: #9fb2dc; font-size: 12px; }
+  .v { font-size: 25px; font-weight: 780; margin-top: 4px; letter-spacing: 0.2px; }
+  .panel { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .panel .card { min-height: 234px; }
+  .title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #d6e4ff;
+    letter-spacing: 0.1px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; border-bottom: 1px solid rgba(129,151,194,0.18); padding: 7px 4px; }
+  th { color: #a9bce6; font-weight: 650; }
+  tr:hover td { background: rgba(70, 103, 170, 0.14); }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; color: #c2d0ef; white-space: pre-wrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 1px solid rgba(128, 157, 214, 0.28);
+    background: linear-gradient(180deg, rgba(39,56,93,0.8), rgba(26,38,67,0.78));
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: #d5e2ff;
+  }
+  .svgwrap {
+    border: 1px solid rgba(124,145,187,0.24);
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(10,16,32,0.88), rgba(8,13,26,0.9));
+    padding: 8px;
+  }
+  svg { width: 100%; height: 170px; display: block; }
+  .links { max-height: 270px; overflow: auto; }
+  .links::-webkit-scrollbar { width: 8px; height: 8px; }
+  .links::-webkit-scrollbar-thumb { background: rgba(126,148,190,.42); border-radius: 8px; }
+  .view { display: none; }
+  .view.active { display: block; }
+  .graph-wrap { margin-top: 14px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; }
+  .graph-canvas { border: 1px solid rgba(124,145,187,0.24); border-radius: 10px; background: linear-gradient(180deg, rgba(10,16,32,0.88), rgba(8,13,26,0.9)); padding: 8px; }
+  #kg { width: 100%; height: 520px; display: block; border-radius: 8px; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; color: #9fb2dc; font-size: 12px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+  .graph-info { display: grid; gap: 12px; }
+  .small { font-size: 12px; color: #9fb2dc; }
+  @media (max-width: 1000px) {
+    .grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+    .panel { grid-template-columns: 1fr; }
+    .graph-wrap { grid-template-columns: 1fr; }
+    #kg { height: 420px; }
+  }
+</style>
+<div class="wrap">
+  <div class="hero">
+    <h1>OpenClaw 项目学习看板</h1>
+    <div class="sub">你可以在“学习看板”和“知识图谱”之间切换，分别查看训练过程指标和模块关系网络</div>
+    <div class="toolbar">
+      <button id="refresh">立即刷新</button>
+      <span id="status" class="sub">加载中...</span>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-view="dashboard">学习看板</button>
+      <button class="tab" data-view="graph">知识图谱</button>
+    </div>
+  </div>
+
+  <div id="view-dashboard" class="view active">
+    <div class="grid">
+      <div class="card metric"><div class="k">快照时间</div><div id="m-time" class="v">-</div></div>
+      <div class="card metric"><div class="k">学习文件数</div><div id="m-files" class="v">-</div></div>
+      <div class="card metric"><div class="k">代码行数</div><div id="m-lines" class="v">-</div></div>
+      <div class="card metric"><div class="k">模块数</div><div id="m-mods" class="v">-</div></div>
+      <div class="card metric"><div class="k">接口识别文件</div><div id="m-api" class="v">-</div></div>
+      <div class="card metric"><div class="k">数据规范文件</div><div id="m-spec" class="v">-</div></div>
+      <div class="card metric"><div class="k">单位规则文件</div><div id="m-unit" class="v">-</div></div>
+      <div class="card metric"><div class="k">状态关系文件</div><div id="m-state" class="v">-</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="card">
+        <div class="title">训练过程趋势（最近 30 次）</div>
+        <div class="svgwrap"><svg id="trend"></svg></div>
+        <div id="trend-meta" class="sub" style="margin-top:8px;"></div>
+      </div>
+      <div class="card">
+        <div class="title">模块细分（Top 12）</div>
+        <table>
+          <thead><tr><th>模块</th><th>文件</th><th>行数</th><th>操作/数据</th></tr></thead>
+          <tbody id="modules"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="card">
+        <div class="title">关键能力摘要</div>
+        <div class="chips" id="capability"></div>
+      </div>
+      <div class="card">
+        <div class="title">模块关系（导入边权重 Top 30）</div>
+        <div class="links"><table><thead><tr><th>From</th><th>To</th><th>权重</th></tr></thead><tbody id="edges"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-graph" class="view">
+    <div class="graph-wrap">
+      <div class="card">
+        <div class="title">知识图谱网络（模块 / 状态 / 接口）</div>
+        <div class="graph-canvas"><svg id="kg"></svg></div>
+        <div class="legend">
+          <span><i class="dot" style="background:#66a4ff;"></i>模块</span>
+          <span><i class="dot" style="background:#ffb067;"></i>状态</span>
+          <span><i class="dot" style="background:#5ee0a7;"></i>接口</span>
+        </div>
+      </div>
+      <div class="graph-info">
+        <div class="card">
+          <div class="title">图谱统计</div>
+          <div class="chips" id="kg-stats"></div>
+        </div>
+        <div class="card">
+          <div class="title">状态管理优先关系（Top 20）</div>
+          <div class="links"><table><thead><tr><th>模块</th><th>状态节点</th><th>强度</th></tr></thead><tbody id="kg-state-edges"></tbody></table></div>
+        </div>
+        <div class="card">
+          <div class="title">训练建议（状态管理重点）</div>
+          <div id="kg-advice" class="small"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const KB_ROOT = "/qqbot/data/project-kb";
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => Number(n || 0).toLocaleString("zh-CN");
+  const statusEl = $("status");
+
+  const safeFetchJson = async (url) => {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error(url + " -> " + r.status);
+    return await r.json();
+  };
+  const safeFetchText = async (url) => {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error(url + " -> " + r.status);
+    return await r.text();
+  };
+
+  const summarizeCoverage = (files) => {
+    const count = (key) => files.filter((f) => Array.isArray(f[key]) && f[key].length > 0).length;
+    return {
+      api: count("api_endpoints"),
+      spec: count("data_specs"),
+      unit: count("unit_conversions"),
+      state: count("state_links"),
+    };
+  };
+
+  const buildRelationEdges = (files) => {
+    const edgeMap = new Map();
+    for (const f of files) {
+      const from = f.module || ".";
+      for (const spec of (f.import_specs || [])) {
+        const to = String(spec).startsWith("@/") ? ("src/" + spec.slice(2)).split("/").slice(0, 3).join("/") : "";
+        if (!to || to === from) continue;
+        const key = from + "->" + to;
+        edgeMap.set(key, (edgeMap.get(key) || 0) + 1);
+      }
+    }
+    return [...edgeMap.entries()].map(([k, w]) => {
+      const [from, to] = k.split("->");
+      return { from, to, weight: w };
+    }).sort((a, b) => b.weight - a.weight).slice(0, 30);
+  };
+
+  const renderTrend = (rows) => {
+    const svg = $("trend");
+    svg.innerHTML = "";
+    const data = rows.slice(-30);
+    if (!data.length) return;
+    const w = svg.clientWidth || 600;
+    const h = 170;
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    const vals = data.map((r) => Number(r.changed_count || 0) + Number(r.added_count || 0) + Number(r.removed_count || 0));
+    const maxV = Math.max(1, ...vals);
+    const x = (i) => (i / Math.max(1, data.length - 1)) * (w - 28) + 14;
+    const y = (v) => h - 20 - (v / maxV) * (h - 42);
+    const baseline = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    baseline.setAttribute("x1", "14"); baseline.setAttribute("x2", String(w - 14));
+    baseline.setAttribute("y1", String(h - 20)); baseline.setAttribute("y2", String(h - 20));
+    baseline.setAttribute("stroke", "#324267");
+    svg.appendChild(baseline);
+    let d = "";
+    vals.forEach((v, i) => d += (i ? " L " : "M ") + x(i) + " " + y(v));
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "#79b0ff");
+    path.setAttribute("stroke-width", "2.2");
+    svg.appendChild(path);
+    $("trend-meta").textContent = `最近 ${data.length} 次扫描，最大变更 ${maxV}，最近一次变更 ${vals[vals.length - 1]}`;
+  };
+
+  const activateView = (view) => {
+    document.querySelectorAll(".tab").forEach((el) => el.classList.toggle("active", el.dataset.view === view));
+    $("view-dashboard").classList.toggle("active", view === "dashboard");
+    $("view-graph").classList.toggle("active", view === "graph");
+  };
+
+  const colorByType = (type) => {
+    if (type === "state") return "#ffb067";
+    if (type === "api") return "#5ee0a7";
+    return "#66a4ff";
+  };
+
+  const renderKnowledgeGraph = (graph) => {
+    const svg = $("kg");
+    svg.innerHTML = "";
+    const w = svg.clientWidth || 860;
+    const h = svg.clientHeight || 520;
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    const nodesRaw = (graph.nodes || []).slice(0, 130);
+    const allowed = new Set(nodesRaw.map((n) => n.id));
+    const edges = (graph.edges || []).filter((e) => allowed.has(e.source) && allowed.has(e.target)).slice(0, 320);
+    const nodes = nodesRaw.map((n, i) => ({
+      ...n,
+      x: (i % 14) / 13 * (w - 80) + 40 + (Math.random() * 24 - 12),
+      y: Math.floor(i / 14) / Math.max(1, Math.ceil(nodesRaw.length / 14) - 1) * (h - 80) + 40 + (Math.random() * 20 - 10),
+      vx: 0,
+      vy: 0,
+    }));
+    const idx = new Map(nodes.map((n, i) => [n.id, i]));
+    for (let tick = 0; tick < 180; tick++) {
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          let dx = a.x - b.x;
+          let dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy + 0.01;
+          const force = 280 / d2;
+          a.vx += (dx / Math.sqrt(d2)) * force;
+          a.vy += (dy / Math.sqrt(d2)) * force;
+          b.vx -= (dx / Math.sqrt(d2)) * force;
+          b.vy -= (dy / Math.sqrt(d2)) * force;
+        }
+      }
+      for (const e of edges) {
+        const a = nodes[idx.get(e.source)];
+        const b = nodes[idx.get(e.target)];
+        if (!a || !b) continue;
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const target = 70 + Math.min(40, (e.weight || 1) * 2);
+        const spring = (dist - target) * 0.004;
+        const fx = (dx / dist) * spring;
+        const fy = (dy / dist) * spring;
+        a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+      }
+      for (const n of nodes) {
+        n.vx *= 0.88; n.vy *= 0.88;
+        n.x = Math.max(20, Math.min(w - 20, n.x + n.vx));
+        n.y = Math.max(20, Math.min(h - 20, n.y + n.vy));
+      }
+    }
+    for (const e of edges) {
+      const a = nodes[idx.get(e.source)];
+      const b = nodes[idx.get(e.target)];
+      if (!a || !b) continue;
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", String(a.x));
+      line.setAttribute("y1", String(a.y));
+      line.setAttribute("x2", String(b.x));
+      line.setAttribute("y2", String(b.y));
+      line.setAttribute("stroke", e.type === "state_interaction" ? "rgba(255,176,103,0.38)" : "rgba(102,164,255,0.25)");
+      line.setAttribute("stroke-width", String(Math.max(0.7, Math.min(3, (e.weight || 1) / 2))));
+      line.setAttribute("class", "edge");
+      line.setAttribute("data-source", e.source);
+      line.setAttribute("data-target", e.target);
+      line.style.transition = "opacity 0.2s ease";
+      svg.appendChild(line);
+    }
+    for (const n of nodes) {
+      const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      const r = 3 + Math.min(8, Math.sqrt(Number(n.weight || 1)));
+      c.setAttribute("cx", String(n.x));
+      c.setAttribute("cy", String(n.y));
+      c.setAttribute("r", String(r));
+      c.setAttribute("fill", colorByType(n.type));
+      c.setAttribute("opacity", "0.95");
+      c.setAttribute("class", "node");
+      c.setAttribute("data-id", n.id);
+      c.style.cursor = "pointer";
+      c.style.transition = "opacity 0.2s ease";
+
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      title.textContent = `${n.id} (${n.type || 'unknown'})`;
+      c.appendChild(title);
+
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", String(n.x + r + 4));
+      text.setAttribute("y", String(n.y + 3));
+      text.setAttribute("fill", "rgba(194, 208, 239, 0.6)");
+      text.setAttribute("font-size", "10px");
+      text.setAttribute("pointer-events", "none");
+      text.setAttribute("class", "node-label");
+      text.setAttribute("data-id", n.id);
+      text.style.transition = "opacity 0.2s ease, fill 0.2s ease";
+      text.textContent = String(n.id).replace(/^(module|state|api):/, '');
+
+      c.addEventListener("mouseenter", () => {
+        svg.querySelectorAll(".node").forEach(node => node.setAttribute("opacity", "0.15"));
+        svg.querySelectorAll(".edge").forEach(edge => edge.setAttribute("opacity", "0.05"));
+        svg.querySelectorAll(".node-label").forEach(label => label.setAttribute("opacity", "0.15"));
+        
+        c.setAttribute("opacity", "1");
+        text.setAttribute("opacity", "1");
+        text.setAttribute("fill", "#fff");
+        text.setAttribute("font-weight", "bold");
+
+        svg.querySelectorAll(`.edge[data-source="${n.id}"], .edge[data-target="${n.id}"]`).forEach(edge => {
+          edge.setAttribute("opacity", "1");
+          const s = edge.getAttribute("data-source");
+          const t = edge.getAttribute("data-target");
+          const connectedId = s === n.id ? t : s;
+          const connectedNode = svg.querySelector(`.node[data-id="${connectedId}"]`);
+          if (connectedNode) connectedNode.setAttribute("opacity", "1");
+          const connectedLabel = svg.querySelector(`.node-label[data-id="${connectedId}"]`);
+          if (connectedLabel) {
+            connectedLabel.setAttribute("opacity", "1");
+            connectedLabel.setAttribute("fill", "#fff");
+            connectedLabel.setAttribute("font-weight", "bold");
+          }
+        });
+      });
+      c.addEventListener("mouseleave", () => {
+        svg.querySelectorAll(".node").forEach(node => node.setAttribute("opacity", "0.95"));
+        svg.querySelectorAll(".edge").forEach(edge => edge.setAttribute("opacity", "1"));
+        svg.querySelectorAll(".node-label").forEach(label => {
+          label.setAttribute("opacity", "1");
+          label.setAttribute("fill", "rgba(194, 208, 239, 0.6)");
+          label.setAttribute("font-weight", "normal");
+        });
+      });
+
+      svg.appendChild(c);
+      svg.appendChild(text);
+    }
+  };
+
+  const renderKnowledgeStats = (graph) => {
+    const stats = graph.stats || {};
+    const chips = [
+      `节点：${fmt(stats.node_count)}`,
+      `边：${fmt(stats.edge_count)}`,
+      `模块节点：${fmt(stats.module_nodes)}`,
+      `状态节点：${fmt(stats.state_nodes)}`,
+      `接口节点：${fmt(stats.api_nodes)}`,
+      `状态关系边：${fmt(stats.state_edges)}`
+    ];
+    $("kg-stats").innerHTML = chips.map((x) => `<span class="chip">${x}</span>`).join("");
+    const stateEdges = (graph.edges || [])
+      .filter((e) => e.type === "state_interaction")
+      .sort((a, b) => b.weight - a.weight)
+      .slice(0, 20);
+    $("kg-state-edges").innerHTML = stateEdges.map((e) =>
+      `<tr><td class="mono">${String(e.source).replace(/^module:/, "")}</td><td class="mono">${String(e.target).replace(/^state:/, "")}</td><td>${e.weight}</td></tr>`
+    ).join("");
+    const advice = [
+      "优先关注核心逻辑与状态管理模块：它们状态边最多，联动最复杂。",
+      "状态节点建议按“Store 实例 / State 字段 / 持久化存储”三层展示，便于定位交互流向。",
+      "对状态高频边（weight 高）做回归问答样本，可提升定位效率与回答稳定性。"
+    ];
+    $("kg-advice").innerHTML = advice.map((x) => `• ${x}`).join("<br>");
+  };
+
+  const render = async () => {
+    try {
+      statusEl.innerHTML = '<span class="ok">加载中...</span>';
+      const [latest, changesTxt, graph] = await Promise.all([
+        safeFetchJson(`${KB_ROOT}/latest_snapshot.json`),
+        safeFetchText(`${KB_ROOT}/changes.jsonl`),
+        safeFetchJson(`${KB_ROOT}/knowledge_graph.json`),
+      ]);
+      const files = latest.files || [];
+      const modules = latest.modules || [];
+      const coverage = summarizeCoverage(files);
+      $("m-time").textContent = String(latest.generated_at || "-").replace("T", " ").replace("+00:00", " UTC");
+      $("m-files").textContent = fmt(latest.file_count);
+      $("m-lines").textContent = fmt(latest.total_lines);
+      $("m-mods").textContent = fmt(modules.length);
+      $("m-api").textContent = fmt(coverage.api);
+      $("m-spec").textContent = fmt(coverage.spec);
+      $("m-unit").textContent = fmt(coverage.unit);
+      $("m-state").textContent = fmt(coverage.state);
+      $("modules").innerHTML = modules.slice(0, 12).map((m) =>
+        `<tr><td class="mono">${m.module}</td><td>${fmt(m.files)}</td><td>${fmt(m.lines)}</td><td>${(m.top_operations || []).slice(0,2).join(", ") || "-"}/${(m.data_specs || []).slice(0,2).join(", ") || "-"}</td></tr>`
+      ).join("");
+      const changes = changesTxt.split("\n").filter(Boolean).map((x) => {
+        try { return JSON.parse(x); } catch { return null; }
+      }).filter(Boolean);
+      renderTrend(changes);
+      const cap = [
+        `接口命中文件：${coverage.api}`,
+        `数据规范命中文件：${coverage.spec}`,
+        `单位转换命中文件：${coverage.unit}`,
+        `状态关系命中文件：${coverage.state}`,
+        `导入关系命中文件：${files.filter((f) => (f.import_specs || []).length).length}`,
+        `调用候选命中文件：${files.filter((f) => (f.call_candidates || []).length).length}`,
+      ];
+      $("capability").innerHTML = cap.map((x) => `<span class="chip">${x}</span>`).join("");
+      $("edges").innerHTML = buildRelationEdges(files).map((e) =>
+        `<tr><td class="mono">${e.from}</td><td class="mono">${e.to}</td><td>${e.weight}</td></tr>`
+      ).join("");
+      renderKnowledgeGraph(graph);
+      renderKnowledgeStats(graph);
+      statusEl.innerHTML = `<span class="ok">已刷新</span> · ${new Date().toLocaleString("zh-CN")}`;
+    } catch (err) {
+      statusEl.innerHTML = `<span class="bad">加载失败</span> · ${String(err.message || err)}`;
+    }
+  };
+
+  document.querySelectorAll(".tab").forEach((btn) => {
+    btn.addEventListener("click", () => activateView(btn.dataset.view));
+  });
+  $("refresh").addEventListener("click", render);
+  render();
+})();
+</script>

@@ -1,0 +1,307 @@
+{
+  "generated_at": "2026-04-24T03:36:04+00:00",
+  "modules": [
+    {
+      "module": "agents/main",
+      "files": 6,
+      "lines": 2366,
+      "top_tags": [
+        "model"
+      ],
+      "top_symbols": [
+        "utc_now",
+        "sha1_text",
+        "try_read_text"
+      ],
+      "top_operations": [
+        "onMounted",
+        "onUnmounted",
+        "数据提交与变更"
+      ],
+      "data_specs": [],
+      "unit_conversions": [
+        "浓度单位转换",
+        "速度单位转换",
+        "温度单位转换"
+      ],
+      "state_links": [
+        "bdefineStore",
+        "localStorage",
+        "sessionStorage",
+        "pinia"
+      ]
+    },
+    {
+      "module": "agents/qqmini",
+      "files": 3,
+      "lines": 916,
+      "top_tags": [
+        "model"
+      ],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "canvas/index.html",
+      "files": 1,
+      "lines": 512,
+      "top_tags": [],
+      "top_symbols": [
+        "fmt",
+        "summarizeCoverage",
+        "count"
+      ],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/AGENTS.md",
+      "files": 1,
+      "lines": 213,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "openclaw.json",
+      "files": 1,
+      "lines": 140,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/BOOTSTRAP.md",
+      "files": 1,
+      "lines": 56,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/TOOLS.md",
+      "files": 1,
+      "lines": 52,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/TOOLS.md",
+      "files": 1,
+      "lines": 41,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/SOUL.md",
+      "files": 1,
+      "lines": 39,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/SOUL.md",
+      "files": 1,
+      "lines": 39,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "exec-approvals.json",
+      "files": 1,
+      "lines": 32,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/IDENTITY.md",
+      "files": 1,
+      "lines": 24,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/IDENTITY.md",
+      "files": 1,
+      "lines": 24,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "logs/config-health.json",
+      "files": 1,
+      "lines": 23,
+      "top_tags": [
+        "config"
+      ],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/USER.md",
+      "files": 1,
+      "lines": 18,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/USER.md",
+      "files": 1,
+      "lines": 18,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "node.json",
+      "files": 1,
+      "lines": 10,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "qqbot/data",
+      "files": 1,
+      "lines": 10,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "qqbot/sessions",
+      "files": 1,
+      "lines": 9,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/HEARTBEAT.md",
+      "files": 1,
+      "lines": 8,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/HEARTBEAT.md",
+      "files": 1,
+      "lines": 8,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "update-check.json",
+      "files": 1,
+      "lines": 7,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace/.openclaw",
+      "files": 1,
+      "lines": 5,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/.openclaw",
+      "files": 1,
+      "lines": 5,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "module": "workspace-qqbot/AGENTS.md",
+      "files": 1,
+      "lines": 4,
+      "top_tags": [],
+      "top_symbols": [],
+      "top_operations": [],
+      "data_specs": [],
+      "unit_conversions": [],
+      "state_links": []
+    }
+  ]
+}

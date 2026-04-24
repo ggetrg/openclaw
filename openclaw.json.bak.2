@@ -1,0 +1,130 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/Users/ikun/.openclaw/workspace",
+      "contextTokens": 32768,
+      "thinkingDefault": "off",
+      "timeoutSeconds": 240,
+      "models": {
+        "nvidia/moonshotai/kimi-k2.5": {
+          "alias": "Kimi"
+        }
+      },
+      "model": {
+        "primary": "nvidia/moonshotai/kimi-k2.5"
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      }
+    ]
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "4ea49aaffe882acebe89bbbfae40f6f69b77a51ef1f2dbf3"
+    },
+    "port": 5345,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "nvidia": {
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "moonshotai/kimi-k2.5",
+            "name": "Kimi K2.5 (NVIDIA)",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 16384
+          }
+        ]
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "nvidia:default": {
+        "provider": "nvidia",
+        "mode": "token"
+      }
+    }
+  },
+  "channels": {
+    "qqbot": {
+      "enabled": true,
+      "allowFrom": [
+        "*"
+      ],
+      "systemPrompt": "默认回复精简高效，优先给结论和可执行步骤。收到以“项目问题”“提问”或“问答”开头的消息时：提取问题正文（去掉前缀和开头空格/:/：/-），执行 python3 /Users/ikun/.openclaw/agents/main/agent/project_kb_worker.py ask --kb-root /Users/ikun/.openclaw/qqbot/data/project-kb/new --question \"<question>\"，并按【建议】【相关模块】【涉及文件】三段回复。若 ask 失败，提示先执行 scan：python3 /Users/ikun/.openclaw/agents/main/agent/project_kb_worker.py scan --project-path /Users/ikun/.openclaw/new --kb-root /Users/ikun/.openclaw/qqbot/data/project-kb/new。收到以“Mac执行”开头的消息时，进入远程控制模式并执行后回传结果。命令格式：Mac执行 打开Trae [路径]；Mac执行 打开应用 <应用名>；Mac执行 打开网址 <url>；Mac执行 终端 <命令>。其中“打开网址”会先清洗 URL：去掉首尾空白、反引号、单双引号，并移除结尾标点（,，。；;!！）。其中“终端”仅允许：date、uptime、whoami、hostname、pwd、ls、df -h、pmset -g batt、openclaw status、openclaw channels status。不在允许列表时回复“未授权命令”。执行终端命令时使用 bash -lc，并返回关键输出（最多120行）。未命中以上前缀时正常回复。",
+      "appId": "1903812661",
+      "clientSecret": "B741yvspnljhfdcbaZYXXXXXXYZabcde"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-10T22:09:18.064Z",
+    "lastRunVersion": "2026.4.9",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.9",
+    "lastTouchedAt": "2026-04-14T01:03:18.748Z"
+  },
+  "plugins": {
+    "entries": {
+      "moonshot": {
+        "enabled": true
+      },
+      "nvidia": {
+        "enabled": true
+      }
+    }
+  },
+  "bindings": [
+    {
+      "type": "route",
+      "agentId": "main",
+      "match": {
+        "channel": "qqbot"
+      }
+    }
+  ]
+}

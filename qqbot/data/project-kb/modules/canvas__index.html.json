@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-04-24T03:34:44+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "module": "canvas/index.html",
+  "file_count": 1,
+  "operations": [],
+  "data_specs": [],
+  "api_endpoints": [],
+  "unit_conversions": [],
+  "state_links": [],
+  "files": [
+    {
+      "path": "canvas/index.html",
+      "lines": 512,
+      "symbols": [
+        "fmt",
+        "summarizeCoverage",
+        "count",
+        "buildRelationEdges",
+        "renderTrend",
+        "x",
+        "y",
+        "activateView",
+        "colorByType",
+        "renderKnowledgeGraph"
+      ],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    }
+  ]
+}

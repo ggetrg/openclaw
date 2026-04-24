@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-24T03:34:44+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "module": "agents/qqmini",
+  "file_count": 3,
+  "operations": [],
+  "data_specs": [],
+  "api_endpoints": [],
+  "unit_conversions": [],
+  "state_links": [],
+  "files": [
+    {
+      "path": "agents/qqmini/sessions/sessions.json",
+      "lines": 797,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/qqmini/agent/models.json",
+      "lines": 114,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/qqmini/agent/auth-profiles.json",
+      "lines": 5,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    }
+  ]
+}

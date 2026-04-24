@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/Users/ikun/.openclaw/exec-approvals.sock",
+    "token": "XmUyjONuyHndbOWdvxgZaBwiGuwTZb4-"
+  },
+  "defaults": {},
+  "agents": {
+    "main": {
+      "allowlist": [
+        {
+          "pattern": "/bin/**",
+          "lastUsedAt": 1775984521913,
+          "id": "ef187aec-7252-40bb-8dce-d03be09984f9"
+        },
+        {
+          "pattern": "/usr/bin/**",
+          "lastUsedAt": 1776044990019,
+          "id": "e279ccd9-56c5-4ad2-aa92-444f1762a773",
+          "lastUsedCommand": "python3 /Users/ikun/.openclaw/agents/main/agent/project_kb_worker.py ask --kb-root /Users/ikun/.openclaw/qqbot/data/project-kb/new --question \"我要给历史数据添加一个添加文件夹的功能\"",
+          "lastResolvedPath": "/usr/bin/python3"
+        },
+        {
+          "pattern": "/opt/homebrew/bin/**",
+          "lastUsedAt": 1775984534287,
+          "id": "60289c8a-dbb0-4853-89fc-dd69da8ad86d"
+        }
+      ]
+    }
+  }
+}

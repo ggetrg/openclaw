@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-04-24T03:34:44+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "module": "agents/main",
+  "file_count": 6,
+  "operations": [
+    "onMounted",
+    "onUnmounted",
+    "数据提交与变更"
+  ],
+  "data_specs": [],
+  "api_endpoints": [
+    "bytes",
+    "mtime_ns",
+    "module",
+    "lines",
+    "tags",
+    "symbols",
+    "operations",
+    "data_specs",
+    "unit_conversions",
+    "state_links",
+    "files",
+    "changed"
+  ],
+  "unit_conversions": [
+    "浓度单位转换",
+    "速度单位转换",
+    "温度单位转换",
+    "单位:kpa",
+    "单位:pa",
+    "单位:g/s",
+    "单位:kg/h",
+    "单位:m3/h",
+    "单位映射/转换函数"
+  ],
+  "state_links": [
+    "bdefineStore",
+    "localStorage",
+    "sessionStorage",
+    "pinia",
+    "vuex"
+  ],
+  "files": [
+    {
+      "path": "agents/main/agent/project_kb_worker.py",
+      "lines": 974,
+      "symbols": [
+        "utc_now",
+        "sha1_text",
+        "try_read_text",
+        "should_include",
+        "line_number_from_index",
+        "infer_module",
+        "extract_symbol_entries",
+        "extract_symbols",
+        "compact_unique",
+        "extract_operations"
+      ],
+      "operations": [
+        "onMounted",
+        "onUnmounted",
+        "数据提交与变更"
+      ],
+      "data_specs": [],
+      "api_endpoints": [
+        "bytes",
+        "mtime_ns",
+        "module",
+        "lines",
+        "tags",
+        "symbols",
+        "operations",
+        "data_specs",
+        "unit_conversions",
+        "state_links",
+        "files",
+        "changed"
+      ],
+      "unit_conversions": [
+        "浓度单位转换",
+        "速度单位转换",
+        "温度单位转换",
+        "单位:kpa",
+        "单位:pa",
+        "单位:g/s",
+        "单位:kg/h",
+        "单位:m3/h",
+        "单位映射/转换函数"
+      ],
+      "state_links": [
+        "bdefineStore",
+        "localStorage",
+        "sessionStorage",
+        "pinia",
+        "vuex"
+      ]
+    },
+    {
+      "path": "agents/main/sessions/backup-reset-1776130262/sessions.json",
+      "lines": 838,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/main/sessions/sessions.json",
+      "lines": 404,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/main/agent/models.json",
+      "lines": 114,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/main/agent/auth-state.json",
+      "lines": 20,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    },
+    {
+      "path": "agents/main/agent/auth-profiles.json",
+      "lines": 16,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    }
+  ]
+}

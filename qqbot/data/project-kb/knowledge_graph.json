@@ -1,0 +1,372 @@
+{
+  "generated_at": "2026-04-24T03:36:04+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "stats": {
+    "node_count": 42,
+    "edge_count": 17,
+    "module_nodes": 25,
+    "state_nodes": 5,
+    "api_nodes": 12,
+    "state_edges": 5,
+    "module_edges": 0,
+    "api_edges": 12
+  },
+  "nodes": [
+    {
+      "id": "api:bytes",
+      "label": "bytes",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:changed",
+      "label": "changed",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:data_specs",
+      "label": "data_specs",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:files",
+      "label": "files",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:lines",
+      "label": "lines",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:module",
+      "label": "module",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:mtime_ns",
+      "label": "mtime_ns",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:operations",
+      "label": "operations",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:state_links",
+      "label": "state_links",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:symbols",
+      "label": "symbols",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:tags",
+      "label": "tags",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "api:unit_conversions",
+      "label": "unit_conversions",
+      "type": "api",
+      "weight": 1
+    },
+    {
+      "id": "module:agents/main",
+      "label": "agents/main",
+      "type": "module",
+      "weight": 6
+    },
+    {
+      "id": "module:agents/qqmini",
+      "label": "agents/qqmini",
+      "type": "module",
+      "weight": 3
+    },
+    {
+      "id": "module:canvas/index.html",
+      "label": "canvas/index.html",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:exec-approvals.json",
+      "label": "exec-approvals.json",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:logs/config-health.json",
+      "label": "logs/config-health.json",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:node.json",
+      "label": "node.json",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:openclaw.json",
+      "label": "openclaw.json",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:qqbot/data",
+      "label": "qqbot/data",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:qqbot/sessions",
+      "label": "qqbot/sessions",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:update-check.json",
+      "label": "update-check.json",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/.openclaw",
+      "label": "workspace-qqbot/.openclaw",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/AGENTS.md",
+      "label": "workspace-qqbot/AGENTS.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/BOOTSTRAP.md",
+      "label": "workspace-qqbot/BOOTSTRAP.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/HEARTBEAT.md",
+      "label": "workspace-qqbot/HEARTBEAT.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/IDENTITY.md",
+      "label": "workspace-qqbot/IDENTITY.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/SOUL.md",
+      "label": "workspace-qqbot/SOUL.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/TOOLS.md",
+      "label": "workspace-qqbot/TOOLS.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace-qqbot/USER.md",
+      "label": "workspace-qqbot/USER.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/.openclaw",
+      "label": "workspace/.openclaw",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/AGENTS.md",
+      "label": "workspace/AGENTS.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/HEARTBEAT.md",
+      "label": "workspace/HEARTBEAT.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/IDENTITY.md",
+      "label": "workspace/IDENTITY.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/SOUL.md",
+      "label": "workspace/SOUL.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/TOOLS.md",
+      "label": "workspace/TOOLS.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "module:workspace/USER.md",
+      "label": "workspace/USER.md",
+      "type": "module",
+      "weight": 1
+    },
+    {
+      "id": "state:bdefineStore",
+      "label": "bdefineStore",
+      "type": "state",
+      "weight": 1
+    },
+    {
+      "id": "state:localStorage",
+      "label": "localStorage",
+      "type": "state",
+      "weight": 1
+    },
+    {
+      "id": "state:pinia",
+      "label": "pinia",
+      "type": "state",
+      "weight": 1
+    },
+    {
+      "id": "state:sessionStorage",
+      "label": "sessionStorage",
+      "type": "state",
+      "weight": 1
+    },
+    {
+      "id": "state:vuex",
+      "label": "vuex",
+      "type": "state",
+      "weight": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "module:agents/main",
+      "target": "state:bdefineStore",
+      "type": "state_interaction",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "state:localStorage",
+      "type": "state_interaction",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "state:sessionStorage",
+      "type": "state_interaction",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "state:pinia",
+      "type": "state_interaction",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "state:vuex",
+      "type": "state_interaction",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:bytes",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:mtime_ns",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:module",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:lines",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:tags",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:symbols",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:operations",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:data_specs",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:unit_conversions",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:state_links",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:files",
+      "type": "api_call",
+      "weight": 1
+    },
+    {
+      "source": "module:agents/main",
+      "target": "api:changed",
+      "type": "api_call",
+      "weight": 1
+    }
+  ]
+}

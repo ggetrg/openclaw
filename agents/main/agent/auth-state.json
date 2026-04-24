@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "lastGood": {
+    "moonshot": "moonshot:default",
+    "nvidia": "nvidia:default"
+  },
+  "usageStats": {
+    "moonshot:default": {
+      "errorCount": 0,
+      "lastFailureAt": 1775891373666,
+      "lastUsed": 1775891373692
+    },
+    "nvidia:default": {
+      "errorCount": 0,
+      "lastUsed": 1777014094051,
+      "lastFailureAt": 1775945264869
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "generated_at": "2026-04-12T13:32:32+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "file_count": 25,
+  "total_lines": 2105,
+  "modules": [
+    {
+      "module": "agents",
+      "files": 5,
+      "lines": 1413,
+      "top_tags": [
+        "model"
+      ],
+      "top_symbols": [
+        "utc_now",
+        "sha1_text",
+        "try_read_text"
+      ]
+    },
+    {
+      "module": "workspace",
+      "files": 7,
+      "lines": 348,
+      "top_tags": [],
+      "top_symbols": []
+    },
+    {
+      "module": ".",
+      "files": 4,
+      "lines": 165,
+      "top_tags": [],
+      "top_symbols": []
+    },
+    {
+      "module": "devices",
+      "files": 2,
+      "lines": 81,
+      "top_tags": [],
+      "top_symbols": []
+    },
+    {
+      "module": "identity",
+      "files": 2,
+      "lines": 34,
+      "top_tags": [],
+      "top_symbols": []
+    },
+    {
+      "module": "logs",
+      "files": 1,
+      "lines": 23,
+      "top_tags": [
+        "config"
+      ],
+      "top_symbols": []
+    },
+    {
+      "module": "nodes",
+      "files": 2,
+      "lines": 22,
+      "top_tags": [],
+      "top_symbols": []
+    },
+    {
+      "module": "qqbot",
+      "files": 2,
+      "lines": 19,
+      "top_tags": [],
+      "top_symbols": []
+    }
+  ],
+  "files": [
+    {
+      "path": "agents/main/sessions/sessions.json",
+      "ext": ".json",
+      "bytes": 44373,
+      "lines": 808,
+      "sha1": "449bfebf6b69e84220022272614b582d1d598e60",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "agents/main/agent/project_kb_worker.py",
+      "ext": ".py",
+      "bytes": 14242,
+      "lines": 455,
+      "sha1": "c4321c5bfe1819e9ef0927cefe62f902bce1cb43",
+      "symbols": [
+        "utc_now",
+        "sha1_text",
+        "try_read_text",
+        "should_include",
+        "extract_symbols",
+        "infer_tags",
+        "scan_project",
+        "load_json",
+        "write_json",
+        "append_jsonl",
+        "build_diff",
+        "run_scan",
+        "tokenize",
+        "score_item",
+        "run_ask",
+        "print_json",
+        "plist_content",
+        "run_launchctl",
+        "install_launchd",
+        "uninstall_launchd",
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "path": "workspace/AGENTS.md",
+      "ext": ".md",
+      "bytes": 7874,
+      "lines": 213,
+      "sha1": "036a6258cf5e9a7f959957cf2e81c63170328c50",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "openclaw.json",
+      "ext": ".json",
+      "bytes": 2397,
+      "lines": 122,
+      "sha1": "06f69ae41cf78f474b2916604b2d216f87fad804",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "agents/main/agent/models.json",
+      "ext": ".json",
+      "bytes": 2775,
+      "lines": 114,
+      "sha1": "8482279b981b050ba3e62766cf483fb5585b9709",
+      "symbols": [],
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "path": "devices/paired.json",
+      "ext": ".json",
+      "bytes": 1410,
+      "lines": 54,
+      "sha1": "ae635b4a523a295d8f68e48ebaf3efa271629ce9",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/TOOLS.md",
+      "ext": ".md",
+      "bytes": 860,
+      "lines": 41,
+      "sha1": "090975145e3578239b265cf5c95e53e79ff078ea",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/SOUL.md",
+      "ext": ".md",
+      "bytes": 1747,
+      "lines": 39,
+      "sha1": "2bf3fec24b972ae412103529a558e584a07189a8",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "exec-approvals.json",
+      "ext": ".json",
+      "bytes": 686,
+      "lines": 30,
+      "sha1": "73c95ff3c7617c15ec28ca1479753d0b82b9a92f",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "devices/pending.json",
+      "ext": ".json",
+      "bytes": 686,
+      "lines": 27,
+      "sha1": "a9b77a96a278b12d25ebf67c1748f0be70038824",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "identity/device-auth.json",
+      "ext": ".json",
+      "bytes": 621,
+      "lines": 26,
+      "sha1": "f371756e7fcf7cecb1a171303abae0245784df52",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/IDENTITY.md",
+      "ext": ".md",
+      "bytes": 636,
+      "lines": 24,
+      "sha1": "397d1f7b3f70e681ae68f72429c4ba0ecdab39e0",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "logs/config-health.json",
+      "ext": ".json",
+      "bytes": 577,
+      "lines": 23,
+      "sha1": "ba65621f87447d21cc8610deb1a2b6fd096c1c36",
+      "symbols": [],
+      "tags": [
+        "config"
+      ]
+    },
+    {
+      "path": "nodes/paired.json",
+      "ext": ".json",
+      "bytes": 543,
+      "lines": 21,
+      "sha1": "ca6c57036c03b5eac438b521b8255ba1811684a5",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "agents/main/agent/auth-state.json",
+      "ext": ".json",
+      "bytes": 379,
+      "lines": 20,
+      "sha1": "506c4630a8d55fc7049e5f3e47e30b74d5c7cd03",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/USER.md",
+      "ext": ".md",
+      "bytes": 477,
+      "lines": 18,
+      "sha1": "ecf0aff566ef0519ed48afa621ffb1610385b3be",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "agents/main/agent/auth-profiles.json",
+      "ext": ".json",
+      "bytes": 383,
+      "lines": 16,
+      "sha1": "ada1e18f33b95f6d899d3b7c1645ff1cf9e5e2fe",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "node.json",
+      "ext": ".json",
+      "bytes": 179,
+      "lines": 10,
+      "sha1": "48e6e060f7598129f1a92483fe414f5892555aeb",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "qqbot/data/known-users.json",
+      "ext": ".json",
+      "bytes": 202,
+      "lines": 10,
+      "sha1": "49fb0ec2961dfce4f2968e6cb06e1c0bb4a1dfd3",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "qqbot/sessions/session-default.json",
+      "ext": ".json",
+      "bytes": 213,
+      "lines": 9,
+      "sha1": "f0b243faff7d8c3a37f540bb66c974ff462ae44a",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "identity/device.json",
+      "ext": ".json",
+      "bytes": 416,
+      "lines": 8,
+      "sha1": "228859588d3216d2a01d98b9526b69aaaba9406a",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/HEARTBEAT.md",
+      "ext": ".md",
+      "bytes": 193,
+      "lines": 8,
+      "sha1": "cdbf74da704edc78c95313cb34bfcdd54af660aa",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "workspace/.openclaw/workspace-state.json",
+      "ext": ".json",
+      "bytes": 69,
+      "lines": 5,
+      "sha1": "eaa2470fb8cc4cb6f5ebf90ab035af579f5332e5",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "update-check.json",
+      "ext": ".json",
+      "bytes": 49,
+      "lines": 3,
+      "sha1": "45dd5e861412575b23d8b9adc0b2273654287fd8",
+      "symbols": [],
+      "tags": []
+    },
+    {
+      "path": "nodes/pending.json",
+      "ext": ".json",
+      "bytes": 2,
+      "lines": 1,
+      "sha1": "bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f",
+      "symbols": [],
+      "tags": []
+    }
+  ]
+}

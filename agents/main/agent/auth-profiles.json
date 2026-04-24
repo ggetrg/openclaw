@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "profiles": {
+    "moonshot:default": {
+      "type": "api_key",
+      "provider": "moonshot",
+      "key": "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"
+    },
+    "nvidia:default": {
+      "type": "token",
+      "provider": "nvidia",
+      "token": "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"
+    }
+  }
+}

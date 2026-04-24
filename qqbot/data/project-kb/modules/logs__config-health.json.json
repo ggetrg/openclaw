@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-04-24T03:34:44+00:00",
+  "project_path": "/Users/ikun/.openclaw",
+  "module": "logs/config-health.json",
+  "file_count": 1,
+  "operations": [],
+  "data_specs": [],
+  "api_endpoints": [],
+  "unit_conversions": [],
+  "state_links": [],
+  "files": [
+    {
+      "path": "logs/config-health.json",
+      "lines": 23,
+      "symbols": [],
+      "operations": [],
+      "data_specs": [],
+      "api_endpoints": [],
+      "unit_conversions": [],
+      "state_links": []
+    }
+  ]
+}
