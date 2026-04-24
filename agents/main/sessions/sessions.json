@@ -1,7 +1,7 @@
 {
   "agent:main:main": {
     "sessionId": "569a85b4-0ccd-4d6b-9a99-a5cb7938eddf",
-    "updatedAt": 1777014094075,
+    "updatedAt": 1777015887005,
     "deliveryContext": {
       "channel": "qqbot",
       "to": "heartbeat"
@@ -148,7 +148,7 @@
     },
     "sessionFile": "/Users/ikun/.openclaw/agents/main/sessions/569a85b4-0ccd-4d6b-9a99-a5cb7938eddf.jsonl",
     "status": "done",
-    "startedAt": 1777014081889,
+    "startedAt": 1777015879779,
     "abortedLastRun": false,
     "systemSent": true,
     "authProfileOverride": "nvidia:default",
@@ -168,7 +168,7 @@
     "contextTokens": 32768,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1777014081872,
+      "generatedAt": 1777015879768,
       "sessionId": "569a85b4-0ccd-4d6b-9a99-a5cb7938eddf",
       "sessionKey": "agent:main:main",
       "provider": "nvidia",
@@ -188,9 +188,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 26723,
+        "chars": 26713,
         "projectContextChars": 12637,
-        "nonProjectContextChars": 14086
+        "nonProjectContextChars": 14076
       },
       "injectedWorkspaceFiles": [
         {
@@ -392,13 +392,13 @@
         ]
       }
     },
-    "inputTokens": 13787,
-    "outputTokens": 109,
+    "inputTokens": 13917,
+    "outputTokens": 79,
     "cacheRead": 0,
     "cacheWrite": 0,
     "estimatedCostUsd": 0,
-    "totalTokens": 13787,
-    "endedAt": 1777014093924,
-    "runtimeMs": 12035
+    "totalTokens": 13917,
+    "endedAt": 1777015886846,
+    "runtimeMs": 7067
   }
 }
