@@ -6,8 +6,8 @@ module.exports = {
       args: 'gateway --port 5345',
       interpreter: 'none',
       env: {
-        OPENCLAW_CONFIG_PATH: '/root/.openclaw/openclaw.json',
-        OPENCLAW_STATE_DIR: '/root/.openclaw',
+        OPENCLAW_CONFIG_PATH: './openclaw.json',
+        OPENCLAW_STATE_DIR: './',
         NODE_ENV: 'production'
       },
       restart_delay: 5000,
