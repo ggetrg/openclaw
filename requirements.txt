@@ -1,0 +1,7 @@
+requests
+numpy
+scipy
+pathlib
+typing-extensions
+python-dotenv
+aiohttp
